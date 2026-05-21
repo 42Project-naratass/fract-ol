@@ -8,7 +8,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 
-# define MAX_ITER 50
+# define MAX_ITER 25
 # define WIDTH 1920.0
 # define HEIGHT 1080.0
 # define X_MIN -1.6
@@ -32,6 +32,10 @@
 # define J 38
 # define P 35
 # define M 46
+
+// MOUSECODE
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 typedef struct s_data
 {
@@ -68,16 +72,18 @@ typedef struct s_complex
 void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
 
 // mandelbrot
-int	calc_mandelbrot(t_data *img, t_complex *complex);
+int	calc_mandelbrot(t_data *img, t_complex complex);
 void	plot_mandelbrot(t_data *img);
 
 // math
-t_complex	*offset_cal(const int p_x, const int p_y);
-t_complex	*convert_to_complex(t_data *img, const int p_x, const int p_y);
+t_complex	offset_cal(const int p_x, const int p_y);
+t_complex	convert_to_complex(t_data *img, const int p_x, const int p_y);
 uint32_t	get_color(const int iter);
 
 // event
 int	ft_close_win(t_data *img);
 int	ft_key_hook(int key_code, void *data);
+int	ft_mouse_hook(int mouse_code, int x, int y, void *param);
+void	zoom(t_data *fractol, const int x, const int y, const int zoom);
 
 #endif

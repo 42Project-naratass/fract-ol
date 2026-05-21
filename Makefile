@@ -10,11 +10,12 @@ OBJS := $(SRC:.c=.o)
 CC = cc
 
 ORIG_CFLAGS := $(CFLAGS)
-CFLAGS += -Wall -Werror -Wextra -c
-CFLAGS += -Ilibft -Iminilibx -Ift_printf -include fractol.h
-CLGAGS += -g3 -glldb -fsanitize=address,undefined
-LDFLAGS = -Llibft -Lminilibx -Lft_printf -fsanitize=address,undefined
+CFLAGS += -Wall -Werror -Wextra
+CFLAGS += -O2 -march=native
+CFLAGS += -Ilibft -Iminilibx -Ift_printf -I.
+LDFLAGS = -Llibft -Lminilibx -Lft_printf
 LDLIBS := -lft -lm -lmlx -lX11 -lftprintf -lXext
+unexport CFLAGS LDFLAGS LDLIBS
 
 all : $(NAME)
 clean :
@@ -36,8 +37,11 @@ libft/libft.a :
 ft_printf/libftprintf.a :
 	CFLAGS='$(ORIG_CFLAGS)' $(MAKE) -C libftprintf all
 
+%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $^
+
 $(NAME) : $(OBJS) | libft/libft.a minilibx/libmlx.a ft_printf/libftprintf.a
-	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
 .NOTPARALLEL: re
 .PHONY: all clean fclean re libft
