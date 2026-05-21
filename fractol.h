@@ -72,7 +72,7 @@ typedef struct s_complex
 void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
 
 // mandelbrot
-int	calc_mandelbrot(t_data *img, t_complex complex);
+int	calc_mandelbrot(t_data *img, const int p_x, const int p_y);
 void	plot_mandelbrot(t_data *img);
 
 // math
