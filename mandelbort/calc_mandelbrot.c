@@ -1,10 +1,10 @@
 #include "../fractol.h"
 
-int	calc_mandelbrot(t_data *img, const int p_x, const int p_y) 
+size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y) 
 {
 	double		x;
 	double		y;
-	int		iter;
+	size_t		iter;
 	t_complex	complex;
 	double		xsqr;
 	double		ysqr;

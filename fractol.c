@@ -1,4 +1,5 @@
 #include "fractol.h"
+#include "minilibx/mlx.h"
 
 int	main(void)
 {
@@ -20,10 +21,10 @@ int	main(void)
 	img.m_y = 0;
 	img.x_offset = 0.0;
 	img.y_offset = 0.0;
-	mlx_mouse_hook(img.mlx_win, ft_mouse_hook, &img);
 	mlx_key_hook(img.mlx_win, ft_key_hook, &img);
+	mlx_mouse_hook(img.mlx_win, ft_mouse_hook, &img);
 	mlx_hook(img.mlx_win, 17, 0L, ft_close_win, &img);
-	plot_mandelbrot(&img);
-	mlx_loop(mlx);
+	mlx_loop_hook(img.mlx, ft_hook_mandelbrot, &img);
+	mlx_loop(img.mlx);
 }
 

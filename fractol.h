@@ -5,10 +5,11 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdint.h>
-# include "libft.h"
+# include <stdbool.h>
+# include <stdlib.h>
 # include "ft_printf.h"
 
-# define MAX_ITER 25
+# define MAX_ITER 42
 # define WIDTH 1920.0
 # define HEIGHT 1080.0
 # define X_MIN -1.6
@@ -49,7 +50,7 @@ typedef struct s_data
     double	zoom;
     int		cx;
     int		cy;
-    int		max_iter;
+    size_t	max_iter;
     int		m_x; // mouse coordinate
     int		m_y; // mouse coordinate
     double	x_offset;
@@ -70,10 +71,15 @@ typedef struct s_complex
 
 // plot
 void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
+void	reso_x1(t_data *img);
+void	reso_x2(t_data *img);
+void	reso_x4(t_data *img);
+void	reso_x8(t_data *img);
 
 // mandelbrot
-int	calc_mandelbrot(t_data *img, const int p_x, const int p_y);
-void	plot_mandelbrot(t_data *img);
+int	ft_hook_mandelbrot(void *param);
+size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y);
+void	plot_mandelbrot(t_data *img, const bool valid);
 
 // math
 t_complex	offset_cal(const int p_x, const int p_y);
