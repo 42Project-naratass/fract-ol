@@ -10,5 +10,4 @@ void	plot_mandelbrot(t_data *img)
 	reso_x2(img);
     else
 	reso_x1(img);
-    }
 }

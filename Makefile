@@ -30,6 +30,7 @@ re : fclean all
 minilibx/libmlx.a:
 	$(MAKE) -C minilibx all
 
+ft_printf/libftprintf.a :
 	CFLAGS='$(ORIG_CFLAGS)' $(MAKE) -C libftprintf all
 
 %.o: %.c

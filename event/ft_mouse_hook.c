@@ -13,6 +13,8 @@ int	ft_mouse_hook(int mouse_code, int x, int y, void *param)
 		zoom(fractol, x, y, 1);
     else if (mouse_code == SCROLL_DOWN)
 		zoom(fractol, x, y, -1);
-    plot_mandelbrot(fractol, false);
+    fractol->need_render = true;
+    fractol->curr_pass = 0;
+    plot_mandelbrot(fractol);
     return (0);
 }

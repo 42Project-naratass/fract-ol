@@ -9,7 +9,7 @@
 # include <stdlib.h>
 # include "ft_printf.h"
 
-# define MAX_ITER 42
+# define MAX_ITER 50
 # define WIDTH 1920.0
 # define HEIGHT 1080.0
 # define X_MIN -1.6
@@ -43,6 +43,8 @@ typedef struct s_data
     void	*mlx;	
     void	*mlx_win;
     void	*img;
+    size_t	curr_pass;
+    bool	need_render;
     char	*addr;
     int		bits_per_pixel;
     int		line_length;
@@ -79,7 +81,7 @@ void	reso_x8(t_data *img);
 // mandelbrot
 int	ft_hook_mandelbrot(void *param);
 size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y);
-void	plot_mandelbrot(t_data *img, const bool valid);
+void	plot_mandelbrot(t_data *img);
 
 // math
 t_complex	offset_cal(const int p_x, const int p_y);

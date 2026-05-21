@@ -15,6 +15,8 @@ int	ft_key_hook(int key_code, void *data)
 	fractal->x_offset += 0.5 / fractal->zoom;
     else if (key_code == d)
 	fractal->x_offset -= 0.5 / fractal->zoom;
-    plot_mandelbrot(fractal, false);
+    fractal->need_render = true;
+    fractal->curr_pass = 0;
+    plot_mandelbrot(fractal);
     return (0);
 }
