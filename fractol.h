@@ -23,7 +23,7 @@
 # define a 97
 # define s 115
 # define d 100
-# define R 15
+# define r 114
 # define C 8
 # define H 4
 # define J 38
@@ -69,7 +69,8 @@ typedef struct s_complex
 }		t_complex;
 
 // plot
-void	init(t_data *img);
+void	init_mlx(t_data *img);
+void	init_fractol(t_data *img);
 void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
 void	render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale);
 

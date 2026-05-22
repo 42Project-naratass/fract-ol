@@ -15,6 +15,8 @@ int	ft_key_hook(int key_code, void *data)
 	fractal->x_offset += 0.5 / fractal->zoom;
     else if (key_code == d || key_code == RIGHT)
 	fractal->x_offset -= 0.5 / fractal->zoom;
+    else if (key_code == r)
+	init_fractol(fractal);
     else
 	return (0);
     fractal->need_render = true;

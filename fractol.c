@@ -13,7 +13,8 @@ int	main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-	    init(&img);
+	    init_mlx(&img);
+	    init_fractol(&img);
 	    mlx_key_hook(img.mlx_win, ft_key_hook, &img);
 	    mlx_mouse_hook(img.mlx_win, ft_mouse_hook, &img);
 	    mlx_hook(img.mlx_win, 17, 0L, ft_close_win, &img);
