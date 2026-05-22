@@ -9,7 +9,7 @@
 # include <stdlib.h>
 # include "ft_printf.h"
 
-# define MAX_ITER 50
+# define MAX_ITER 100
 # define WIDTH 1920.0
 # define HEIGHT 1080.0
 # define X_MIN -1.6
@@ -72,6 +72,7 @@ typedef struct s_complex
 }		t_complex;
 
 // plot
+void	init(t_data *img);
 void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
 void	reso_x1(t_data *img);
 void	reso_x2(t_data *img);
