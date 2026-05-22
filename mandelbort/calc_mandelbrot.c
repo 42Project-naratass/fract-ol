@@ -1,5 +1,10 @@
 #include "../fractol.h"
 
+const double x_min = WIDTH / 1200.0 * -1;
+const double x_max = WIDTH / 1200.0;
+const double y_min = HEIGHT / 1200.0 * -1;
+const double y_max = HEIGHT / 1200.0;
+
 size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y) 
 {
 	double		x;
@@ -11,14 +16,14 @@ size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y)
 
 	x = 0;
 	y = 0;
-	xsqr = x;
-	ysqr = y;
+	xsqr = 0;
+	ysqr = 0;
 	iter = 0;
-	complex.real = X_MIN + (p_x / WIDTH) * (X_MAX - X_MIN);
-	complex.i = Y_MAX - (p_y / HEIGHT) * (Y_MAX- Y_MIN);
+	complex.real = x_min + ((double)p_x / WIDTH) * (x_max - x_min);
+	complex.i = y_max - ((double)p_y / HEIGHT) * (y_max - y_min);
 	complex.real = (img->m_x - complex.real) / img->zoom;
 	complex.i = (img->m_y - complex.i) / img->zoom;
-	while (xsqr + ysqr <= 4 && iter < MAX_ITER) // escape time algorithm
+	while (xsqr + ysqr <= 4 && iter < img->max_iter) // escape time algorithm
 	{
 	    y = (x + y) * (x + y) - xsqr - ysqr;
 	    y += complex.i + img->y_offset;

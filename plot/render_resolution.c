@@ -19,17 +19,17 @@ static void	ft_loop(t_data *img, int p_x, int p_y, uint32_t color, size_t reso_s
     }
 }
 
-void	reso_scale(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale)
+void	render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale)
 {
     int		p_x;
     int		p_y;
     size_t	iter;
 
     p_x = 0;
-    while (p_x < WIDTH - reso_scale - 1)
+    while (p_x < WIDTH - reso_scale)
     {
 	p_y = 0;
-	while (p_y < HEIGHT - reso_scale - 1)
+	while (p_y < HEIGHT - reso_scale)
 	{
 	   iter = fractol(img, p_x, p_y);
 	   if (iter == img->max_iter)

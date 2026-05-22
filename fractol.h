@@ -9,13 +9,9 @@
 # include <stdlib.h>
 # include "ft_printf.h"
 
-# define MAX_ITER 100
-# define WIDTH 1920.0
-# define HEIGHT 1080.0
-# define X_MIN -1.6
-# define X_MAX 1.6
-# define Y_MIN -0.9
-# define Y_MAX 0.9
+# define MAX_ITER 50
+# define WIDTH 2560.0
+# define HEIGHT 1440.0
 
 // KEY CODES
 # define ESC 65307
@@ -40,6 +36,7 @@
 
 typedef struct s_data
 {
+    char	*name;
     void	*mlx;	
     void	*mlx_win;
     void	*img;
@@ -74,7 +71,7 @@ typedef struct s_complex
 // plot
 void	init(t_data *img);
 void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
-void	reso_scale(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale);
+void	render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale);
 
 // mandelbrot
 int	ft_hook_mandelbrot(void *param);
@@ -91,5 +88,9 @@ int	ft_close_win(t_data *img);
 int	ft_key_hook(int key_code, void *data);
 int	ft_mouse_hook(int mouse_code, int x, int y, void *param);
 void	zoom(t_data *fractol, const int x, const int y, const int zoom);
+
+// utils
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_tolower(int c);
 
 #endif
