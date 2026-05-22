@@ -20,9 +20,12 @@ unexport CFLAGS LDFLAGS LDLIBS
 all : $(NAME)
 clean :
 	$(MAKE) -C minilibx clean
+	$(MAKE) -C ft_printf clean
 	$(RM) $(OBJS) $(DEPS)
 
 fclean : clean
+	rm -f minilibx/libmlx.a
+	$(MAKE) -C ft_printf fclean
 	$(RM) $(OBJS) $(NAME)
 
 re : fclean all
@@ -31,7 +34,7 @@ minilibx/libmlx.a:
 	$(MAKE) -C minilibx all
 
 ft_printf/libftprintf.a :
-	CFLAGS='$(ORIG_CFLAGS)' $(MAKE) -C libftprintf all
+	CFLAGS=$(ORIG_CFLAGS) $(MAKE) -C ft_printf all
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $^
