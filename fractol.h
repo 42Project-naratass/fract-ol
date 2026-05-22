@@ -74,11 +74,7 @@ typedef struct s_complex
 // plot
 void	init(t_data *img);
 void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
-void	reso_x1(t_data *img);
-void	reso_x2(t_data *img);
-void	reso_x4(t_data *img);
-void	reso_x8(t_data *img);
-void	reso_x16(t_data *img);
+void	reso_scale(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale);
 
 // mandelbrot
 int	ft_hook_mandelbrot(void *param);
