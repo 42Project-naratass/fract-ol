@@ -9,9 +9,10 @@
 # include <stdlib.h>
 # include "ft_printf.h"
 
-# define MAX_ITER 50
-# define WIDTH 2560.0
-# define HEIGHT 1440.0
+# define MAX_ITER 150
+# define WIDTH 1920.0
+# define HEIGHT 1080.0
+# define MAX_ZOOM 10000000
 
 // KEY CODES
 # define ESC 65307

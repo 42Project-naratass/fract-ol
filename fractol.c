@@ -1,5 +1,4 @@
 #include "fractol.h"
-#include "minilibx/mlx.h"
 
 static void	draw_fractol(t_data *img, char *argv[])
 {
