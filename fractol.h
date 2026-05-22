@@ -55,6 +55,8 @@ typedef struct s_data
     int		m_y; // mouse coordinate
     double	x_offset;
     double	y_offset;
+    double	czi; // const z.i
+    double	czr; // const z.r
 }		t_data;
 
 typedef struct s_pcor
@@ -69,6 +71,11 @@ typedef struct s_complex
     double	i;
 }		t_complex;
 
+extern const double x_min;
+extern const double x_max;
+extern const double y_min;
+extern const double y_max;
+
 // plot
 void	init_mlx(t_data *img);
 void	init_fractol(t_data *img);
@@ -79,6 +86,11 @@ void	render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int), size_t 
 int	ft_hook_mandelbrot(void *param);
 size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y);
 void	plot_mandelbrot(t_data *img);
+
+// julia
+int	ft_hook_julia(void *param);
+size_t	calc_julia(t_data *img, const int p_x, const int p_y);
+void	plot_julia(t_data *img);
 
 // math
 t_complex	offset_cal(const int p_x, const int p_y);

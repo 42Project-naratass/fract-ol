@@ -1,9 +1,16 @@
 #include "fractol.h"
 
+const double x_min = WIDTH / 1200.0 * -1;
+const double x_max = WIDTH / 1200.0;
+const double y_min = HEIGHT / 1200.0 * -1;
+const double y_max = HEIGHT / 1200.0;
+
 static void	draw_fractol(t_data *img, char *argv[])
 {
     if (ft_strncmp(argv[1], "mandelbrot", 10) == 0)
 	mlx_loop_hook(img->mlx, ft_hook_mandelbrot, img);
+    else if (ft_strncmp(argv[1], "julia", 5) == 0)
+	mlx_loop_hook(img->mlx, ft_hook_julia, img);
 }
 
 int	main(int argc, char *argv[])

@@ -1,10 +1,5 @@
 #include "../fractol.h"
 
-const double x_min = WIDTH / 1200.0 * -1;
-const double x_max = WIDTH / 1200.0;
-const double y_min = HEIGHT / 1200.0 * -1;
-const double y_max = HEIGHT / 1200.0;
-
 size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y) 
 {
 	double		x;

@@ -6,6 +6,7 @@ SRC += $(wildcard mandelbort/*.c)
 SRC += $(wildcard math/*.c)
 SRC += $(wildcard event/*.c)
 SRC += $(wildcard utils/*.c)
+SRC += $(wildcard julia/*.c)
 OBJS := $(SRC:.c=.o)
 
 CC = cc
