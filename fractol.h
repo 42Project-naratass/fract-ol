@@ -78,6 +78,7 @@ void	reso_x1(t_data *img);
 void	reso_x2(t_data *img);
 void	reso_x4(t_data *img);
 void	reso_x8(t_data *img);
+void	reso_x16(t_data *img);
 
 // mandelbrot
 int	ft_hook_mandelbrot(void *param);

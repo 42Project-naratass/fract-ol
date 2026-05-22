@@ -10,7 +10,7 @@ int	ft_hook_mandelbrot(void *param)
 	img = param;
 	plot_mandelbrot(img);
 	img->curr_pass++;
-	if (img->curr_pass > 3)
+	if (img->curr_pass > 4)
 	{
 	    img->need_render = false;
 	    img->curr_pass = 0;
