@@ -16,8 +16,8 @@ size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y)
 	iter = 0;
 	complex.real = x_min + ((double)p_x / WIDTH) * (x_max - x_min);
 	complex.i = y_max - ((double)p_y / HEIGHT) * (y_max - y_min);
-	complex.real = ((complex.real - img->c_x) / img->zoom) + img->x_offset;
-	complex.i = ((complex.i - img->c_y) / img->zoom) + img->y_offset;
+	complex.real = ((complex.real) / img->zoom) + img->x_offset;
+	complex.i = ((complex.i) / img->zoom) + img->y_offset;
 	while (xsqr + ysqr <= 4 && iter < img->max_iter) // escape time algorithm
 	{
 	    y = (x + y) * (x + y) - xsqr - ysqr;
