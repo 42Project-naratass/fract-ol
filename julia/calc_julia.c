@@ -10,8 +10,8 @@ size_t	calc_julia(t_data *img, const int p_x, const int p_y)
 
 	x = x_min + ((double)p_x / WIDTH) * (x_max - x_min) + img->x_offset;
 	y = y_max - ((double)p_y / HEIGHT) * (y_max - y_min) + img->y_offset;
-	x = (img->m_x - x) / img->zoom;
-	y = (img->m_y - y) / img->zoom;
+	x = (img->c_x - x) / img->zoom;
+	y = (img->c_y - y) / img->zoom;
 	xsqr = x * x;
 	ysqr = y * y;
 	iter = 0;

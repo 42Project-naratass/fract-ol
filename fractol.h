@@ -48,11 +48,9 @@ typedef struct s_data
     int		line_length;
     int		endian;
     double	zoom;
-    int		cx;
-    int		cy;
     size_t	max_iter;
-    int		m_x; // mouse coordinate
-    int		m_y; // mouse coordinate
+    int		c_x; // mouse center
+    int		c_y; // screen center
     double	x_offset;
     double	y_offset;
     double	czi; // const z.i
