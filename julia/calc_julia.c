@@ -8,7 +8,7 @@ size_t	calc_julia(t_data *img, const int p_x, const int p_y)
 	double		xsqr;
 	double		ysqr;
 
-	x = x_min + ((double)p_x / WIDTH) * (x_max - x_min) + img->czr + img->x_offset;
+	x = x_min + ((double)p_x / WIDTH) * (x_max - x_min) + img->x_offset;
 	y = y_max - ((double)p_y / HEIGHT) * (y_max - y_min) + img->y_offset;
 	x = (img->m_x - x) / img->zoom;
 	y = (img->m_y - y) / img->zoom;
@@ -17,7 +17,7 @@ size_t	calc_julia(t_data *img, const int p_x, const int p_y)
 	iter = 0;
 	while (xsqr + ysqr <= 4 && iter < img->max_iter) // escape time algorithm
 	{
-	    y = (x + y) * (x + y) - xsqr - ysqr;
+	    y = (x + y) * (x + y) - xsqr - ysqr + img->czr ;
 	    y += img->czi;
 	    x = xsqr - ysqr;
 	    xsqr = x * x;
