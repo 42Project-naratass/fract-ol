@@ -1,12 +1,23 @@
 NAME := fractol
 
-SRC := $(wildcard *.c)
-SRC += $(wildcard plot/*.c)
-SRC += $(wildcard mandelbort/*.c)
-SRC += $(wildcard math/*.c)
-SRC += $(wildcard event/*.c)
-SRC += $(wildcard utils/*.c)
-SRC += $(wildcard julia/*.c)
+SRC :=  ./fractol.c
+SRC += 	./plot/init_mlx.c \
+	./plot/init_fractol.c \
+	./plot/my_mlx_pixel_put.c \
+	./plot/render_resolution.c
+SRC += 	./mandelbrot/plot_mandelbort.c \
+	./mandelbrot/ft_hook_mandelbrot.c \
+	./mandelbrot/calc_mandelbrot.c
+SRC += ./math/zoom.c \
+	./math/get_color.c
+SRC += 	./event/ft_close_win.c \
+	./event/ft_mouse_hook.c \
+	./event/ft_key_hook.c
+SRC +=	./utils/ft_tolower.c \
+	./utils/ft_strncmp.c
+SRC += 	./julia/plot_julia.c \
+	./julia/ft_hook_julia.c \
+	./julia/calc_julia.c
 OBJS := $(SRC:.c=.o)
 
 CC = cc

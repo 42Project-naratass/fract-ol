@@ -5,6 +5,18 @@ const double x_max = WIDTH / 1200.0;
 const double y_min = HEIGHT / 1200.0 * -1;
 const double y_max = HEIGHT / 1200.0;
 
+static void	invalid_input(char *argv[])
+{
+    if (ft_strncmp(argv[1], "mandelbrot", 10) != 0 &&
+	ft_strncmp(argv[1], "julia", 6) != 0)
+    {
+	ft_printf("error: invalid format\nUse following format:\n\
+./fractol mandelbrot\n\
+./fractol julia\n");
+	exit(0);
+    }
+}
+
 static void	draw_fractol(t_data *img, char *argv[])
 {
     if (ft_strncmp(argv[1], "mandelbrot", 10) == 0)
@@ -19,6 +31,7 @@ int	main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
+	    invalid_input(argv);
 	    init_mlx(&img);
 	    init_fractol(&img);
 	    mlx_key_hook(img.mlx_win, ft_key_hook, &img);
@@ -27,6 +40,10 @@ int	main(int argc, char *argv[])
 	    draw_fractol(&img, argv);
 	    mlx_loop(img.mlx);
 	}
+	else
+	    ft_printf("error: invalid format\nUse following format:\n\
+./fractol mandelbrot\n\
+./fractol julia\n");
 	return (0);
 }
 
