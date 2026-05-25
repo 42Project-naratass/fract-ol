@@ -13,6 +13,10 @@
 # define WIDTH 1920.0
 # define HEIGHT 1080.0
 # define MAX_ZOOM 10000000
+# define X_MIN (WIDTH / 1200.0 * -1)
+# define X_MAX (WIDTH / 1200.0)
+# define Y_MIN (HEIGHT / 1200.0 * - 1)
+# define Y_MAX (HEIGHT / 1200.0)
 
 // KEY CODES
 # define ESC 65307
@@ -37,72 +41,65 @@
 
 typedef struct s_data
 {
-    char	*name;
-    void	*mlx;	
-    void	*mlx_win;
-    void	*img;
-    size_t	curr_pass;
-    bool	need_render;
-    char	*addr;
-    int		bits_per_pixel;
-    int		line_length;
-    int		endian;
-    double	zoom;
-    size_t	max_iter;
-    int		c_x; // mouse center
-    int		c_y; // screen center
-    double	x_offset;
-    double	y_offset;
-    double	czi; // const z.i
-    double	czr; // const z.r
+	char	*name;
+	void	*mlx;	
+	void	*mlx_win;
+	void	*img;
+	size_t	curr_pass;
+	bool	need_render;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	double	zoom;
+	size_t	max_iter;
+	int		c_x; // mouse center
+	int		c_y; // screen center
+	double	x_offset;
+	double	y_offset;
+	double	czi; // const z.i
+	double	czr; // const z.r
 }		t_data;
 
 typedef struct s_pcor
 {
-    int	x_c;
-    int	y_c;
+	int	x_c;
+	int	y_c;
 }		t_pcor;
 
 typedef struct s_complex 
 {
-    double	real;
-    double	i;
+	double	real;
+	double	i;
 }		t_complex;
 
-extern const double x_min;
-extern const double x_max;
-extern const double y_min;
-extern const double y_max;
-
 // plot
-void	init_mlx(t_data *img);
-void	init_fractol(t_data *img);
-void	my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
-void	render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale);
+void		init_mlx(t_data *img);
+void		init_fractol(t_data *img);
+void		my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
+void		render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale);
 
 // mandelbrot
-int	ft_hook_mandelbrot(void *param);
-size_t	calc_mandelbrot(t_data *img, const int p_x, const int p_y);
-void	plot_mandelbrot(t_data *img);
+int			ft_hook_mandelbrot(void *param);
+size_t		calc_mandelbrot(t_data *img, const int p_x, const int p_y);
+void		plot_mandelbrot(t_data *img);
 
 // julia
-int	ft_hook_julia(void *param);
-size_t	calc_julia(t_data *img, const int p_x, const int p_y);
-void	plot_julia(t_data *img);
+int			ft_hook_julia(void *param);
+size_t		calc_julia(t_data *img, const int p_x, const int p_y);
+void		plot_julia(t_data *img);
 
 // math
-t_complex	offset_cal(const int p_x, const int p_y);
-t_complex	convert_to_complex(t_data *img, const int p_x, const int p_y);
 uint32_t	get_color(const int iter);
+void		zoom(t_data *fractol, const int x, const int y, const int zoom);
 
 // event
-int	ft_close_win(t_data *img);
-int	ft_key_hook(int key_code, void *data);
-int	ft_mouse_hook(int mouse_code, int x, int y, void *param);
-void	zoom(t_data *fractol, const int x, const int y, const int zoom);
+int			ft_close_win(t_data *img);
+int			ft_key_hook(int key_code, void *data);
+int			ft_mouse_hook(int mouse_code, int x, int y, void *param);
 
 // utils
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-int	ft_tolower(int c);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_tolower(int c);
 
 #endif
