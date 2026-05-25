@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 01:43:57 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/26 01:43:58 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/26 03:19:12 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	ft_hook_julia(void *param)
 	t_data	*img;
 
 	img = param;
-	img->czr = -0.50916;
-	img->czi = -0.56277;
 	if (img->need_render)
 	{
 		img = param;
