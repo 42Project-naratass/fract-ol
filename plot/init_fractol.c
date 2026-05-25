@@ -6,19 +6,20 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 01:57:19 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/26 03:23:47 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/26 03:55:31 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 #include <sys/time.h>
 
-static double	get_random_value()
+static double	get_random_value(void)
 {
 	struct timeval	tv;
+	unsigned long	val;
 
 	gettimeofday(&tv, NULL);
-	unsigned long val = tv.tv_usec % 1000000;
+	val = tv.tv_usec % 1000000;
 	return ((double)val / 1000000.0);
 }
 
