@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/26 01:24:26 by naratass          #+#    #+#             */
+/*   Updated: 2026/05/26 02:07:27 by naratass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # include <mlx.h>
@@ -13,10 +25,6 @@
 # define WIDTH 1920.0
 # define HEIGHT 1080.0
 # define MAX_ZOOM 10000000
-# define X_MIN (WIDTH / 1200.0 * -1)
-# define X_MAX (WIDTH / 1200.0)
-# define Y_MIN (HEIGHT / 1200.0 * - 1)
-# define Y_MAX (HEIGHT / 1200.0)
 
 // KEY CODES
 # define ESC 65307
@@ -24,11 +32,11 @@
 # define DOWN 40
 # define LEFT 37
 # define RIGHT 39
-# define w 119
-# define a 97
-# define s 115
-# define d 100
-# define r 114
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define R 114
 # define C 8
 # define H 4
 # define J 38
@@ -58,26 +66,38 @@ typedef struct s_data
 	double	x_offset;
 	double	y_offset;
 	double	czi; // const z.i
-	double	czr; // const z.r
+	double	czr; // const z.rA
+	double	x_min;
+	double	x_max;
+	double	y_min;
+	double	y_max;
 }		t_data;
 
 typedef struct s_pcor
 {
-	int	x_c;
-	int	y_c;
-}		t_pcor;
+	int	p_x;
+	int	p_y;
+}	t_pcor;
 
-typedef struct s_complex 
+typedef struct s_complex
 {
 	double	real;
 	double	i;
-}		t_complex;
+}	t_complex;
+
+typedef struct s_sqr
+{
+	double	xsqr;
+	double	ysqr;
+}	t_sqr;
 
 // plot
 void		init_mlx(t_data *img);
 void		init_fractol(t_data *img);
-void		my_mlx_pixel_put(t_data *data, const int p_x, const int p_y, int color);
-void		render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int), size_t reso_scale);
+void		my_mlx_pixel_put(t_data *data, const int p_x, const int p_y,
+				int color);
+void		render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int),
+				size_t reso_scale);
 
 // mandelbrot
 int			ft_hook_mandelbrot(void *param);

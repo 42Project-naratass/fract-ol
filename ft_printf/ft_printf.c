@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 11:12:19 by naratass          #+#    #+#             */
-/*   Updated: 2026/04/15 17:01:38 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/26 01:48:22 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ static int	check_format(va_list ap, const char format)
 		return (ft_fputchar('%'));
 	if (format == 'u')
 		return (ft_funsignednbr(va_arg(ap, int)));
-  else
-    return (-1);
+	else
+		return (-1);
 }

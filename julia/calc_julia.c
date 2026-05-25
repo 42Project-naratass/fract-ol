@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calc_julia.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/26 01:44:00 by naratass          #+#    #+#             */
+/*   Updated: 2026/05/26 02:01:34 by naratass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
 size_t	calc_julia(t_data *img, const int p_x, const int p_y)
@@ -5,23 +17,23 @@ size_t	calc_julia(t_data *img, const int p_x, const int p_y)
 	double	x;
 	double	y;
 	size_t	iter;
-	double	xsqr;
-	double	ysqr;
+	t_sqr	sqr;
 
-	x = X_MIN + ((double)p_x / WIDTH) * (X_MAX - X_MIN) + img->x_offset;
-	y = Y_MAX - ((double)p_y / HEIGHT) * (Y_MAX - Y_MIN) + img->y_offset;
-	x = x / img->zoom;
-	y = y / img->zoom;
-	xsqr = x * x;
-	ysqr = y * y;
+	x = img->x_min + ((double)p_x / WIDTH) * (img->x_max - img->x_max);
+	y = img->y_max - ((double)p_y / HEIGHT) * (img->y_max - img->y_min);
+	x = (x + img->x_offset) / img->zoom;
+	y = (y + img->y_offset) / img->zoom;
+	sqr.xsqr = x * x;
+	sqr.ysqr = y * y;
 	iter = 0;
-	while (xsqr + ysqr <= 4 && iter < img->max_iter) // escape time algorithm
+	while (sqr.xsqr + sqr.ysqr <= 4
+		&& iter < img->max_iter)
 	{
-		y = (x + y) * (x + y) - xsqr - ysqr + img->czr ;
+		y = (x + y) * (x + y) - sqr.xsqr - sqr.ysqr + img->czr ;
 		y += img->czi;
-		x = xsqr - ysqr;
-		xsqr = x * x;
-		ysqr = y * y;
+		x = sqr.xsqr - sqr.ysqr;
+		sqr.xsqr = x * x;
+		sqr.ysqr = y * y;
 		++iter;
 	}
 	return (iter);

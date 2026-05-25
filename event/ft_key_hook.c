@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_key_hook.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/26 01:56:53 by naratass          #+#    #+#             */
+/*   Updated: 2026/05/26 02:05:57 by naratass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
 int	ft_key_hook(int key_code, void *data)
@@ -7,15 +19,15 @@ int	ft_key_hook(int key_code, void *data)
 	fractal = data;
 	if (key_code == ESC)
 		exit(1);
-	else if (key_code == w || key_code == UP)
+	else if (key_code == W || key_code == UP)
 		fractal->y_offset += 0.5 / fractal->zoom;
-	else if (key_code == s || key_code == DOWN)
+	else if (key_code == S || key_code == DOWN)
 		fractal->y_offset -= 0.5 / fractal->zoom;
-	else if (key_code == a || key_code == LEFT)
+	else if (key_code == A || key_code == LEFT)
 		fractal->x_offset -= 0.5 / fractal->zoom;
-	else if (key_code == d || key_code == RIGHT)
+	else if (key_code == D || key_code == RIGHT)
 		fractal->x_offset += 0.5 / fractal->zoom;
-	else if (key_code == r)
+	else if (key_code == R)
 		init_fractol(fractal);
 	else
 		return (0);
