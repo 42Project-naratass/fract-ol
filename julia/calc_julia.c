@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 01:44:00 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/26 02:01:34 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/26 02:22:01 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	calc_julia(t_data *img, const int p_x, const int p_y)
 
 	x = img->x_min + ((double)p_x / WIDTH) * (img->x_max - img->x_max);
 	y = img->y_max - ((double)p_y / HEIGHT) * (img->y_max - img->y_min);
-	x = (x + img->x_offset) / img->zoom;
+	x = (x) / img->zoom;
 	y = (y + img->y_offset) / img->zoom;
 	sqr.xsqr = x * x;
 	sqr.ysqr = y * y;
