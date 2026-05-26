@@ -39,7 +39,7 @@ static void	fill_palette_16_to_31(uint32_t *p)
 	p[18] = 0xE0E0E0FF;
 	p[19] = 0xD0D0D0FF;
 	p[20] = 0xC0C0C0FF;
-	p[21] = 0x21B0B0FF;
+	p[21] = 0xB0B0B0FF;
 	p[22] = 0xA0A0A0FF;
 	p[23] = 0x909090FF;
 	p[24] = 0x808080FF;
@@ -59,6 +59,6 @@ uint32_t	get_color(const int iter)
 
 	fill_palette_0_to_15(palette);
 	fill_palette_16_to_31(palette);
-	index = round(iter / 1.625);
+	index = floor(iter / 4.6875);
 	return (palette[index]);
 }
