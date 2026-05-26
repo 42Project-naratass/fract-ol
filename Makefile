@@ -25,6 +25,7 @@ CC = cc
 ORIG_CFLAGS := $(CFLAGS)
 CFLAGS += -Wall -Werror -Wextra
 CFLAGS += -O2 -march=native
+#CFLAGS += -g3#-fsanitize=address,undefined
 CFLAGS += -Iminilibx -Ift_printf -I.
 LDFLAGS = -Lminilibx -Lft_printf
 LDLIBS := -lm -lmlx -lX11 -lftprintf -lXext

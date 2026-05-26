@@ -18,7 +18,10 @@ int	ft_key_hook(int key_code, void *data)
 
 	fractal = data;
 	if (key_code == ESC)
+	{
+		ft_close_win(fractal);
 		exit(1);
+	}
 	else if (key_code == W || key_code == UP)
 		fractal->y_offset += 0.5 / fractal->zoom;
 	else if (key_code == S || key_code == DOWN)

@@ -36,7 +36,7 @@ int	main(int argc, char *argv[])
 {
 	t_data	img;
 
-	if (argc = 1)
+	if (argc == 2)
 	{
 		invalid_input(argv);
 		init_mlx(&img);

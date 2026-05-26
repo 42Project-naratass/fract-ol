@@ -25,6 +25,7 @@ static double	get_random_value(void)
 
 void	init_fractol(t_data *img)
 {
+	img->need_render = true;
 	img->czr = get_random_value() - 0.8;
 	img->zoom = 0.6;
 	img->max_iter = 50;
