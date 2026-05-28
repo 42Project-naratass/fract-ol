@@ -59,6 +59,6 @@ uint32_t	get_color(const int iter)
 
 	fill_palette_0_to_15(palette);
 	fill_palette_16_to_31(palette);
-	index = floor(iter / 4.6875);
+	index = iter % 32;
 	return (palette[index]);
 }
