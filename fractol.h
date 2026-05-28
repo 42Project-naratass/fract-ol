@@ -121,5 +121,8 @@ int			ft_mouse_hook(int mouse_code, int x, int y, void *param);
 // utils
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_tolower(int c);
+bool			is_digit(char c);
+bool			is_space(char c);
+double			ft_atof(char *nbtr);
 
 #endif
