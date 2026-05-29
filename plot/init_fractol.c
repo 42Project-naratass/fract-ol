@@ -21,7 +21,7 @@ void	init_fractol(t_data *img)
 	img->c_x = 0;
 	img->c_y = 0;
 	img->curr_pass = 0;
-	img->x_offset = -0.5;
+	img->x_offset = 0.15;
 	img->y_offset = 0.0;
 	img->x_min = (WIDTH / 1200.0 * -1);
 	img->x_max = (WIDTH / 1200.0);
