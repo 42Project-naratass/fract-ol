@@ -14,7 +14,12 @@ SRC += 	./event/ft_close_win.c \
 	./event/ft_mouse_hook.c \
 	./event/ft_key_hook.c
 SRC +=	./utils/ft_tolower.c \
-	./utils/ft_strncmp.c
+	./utils/ft_strncmp.c \
+	./utils/ft_atof.c \
+	./utils/ft_tolower.c \
+	./utils/ft_strtod.c \
+	./utils/is_digit.c \
+	./utils/is_space.c
 SRC += 	./julia/plot_julia.c \
 	./julia/ft_hook_julia.c \
 	./julia/calc_julia.c

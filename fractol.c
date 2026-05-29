@@ -12,16 +12,39 @@
 
 #include "fractol.h"
 
-static void	invalid_input(char *argv[])
+static void	invalid_parameter(char *argv[])
 {
-	if (ft_strncmp(argv[1], "mandelbrot", 10) != 0
-		&& ft_strncmp(argv[1], "julia", 6) != 0)
+    double	czi;
+    double	czr;
+    char	*endptr;
+
+    if (ft_strncmp(argv[1], "julia", 6) == 0)
+    {
+	czr = ft_strtod(argv[2], &endptr);
+	if (czr < -1.0 || czr > 1.0 || (czr == 0.0 && *endptr))
 	{
-		ft_printf("error: invalid format\nUse following format:\n\
-	./fractol mandelbrot\n\
-	./fractol julia\n");
-		exit(0);
+	    ft_printf("Invalid argument range (range = [-1.0 - 1.0])");
+	    exit(1);
 	}
+	czi = ft_strtod(argv[3], &endptr);
+	if (czi < -1.0 || czi > 1.0 || (czi == 0.0 && *endptr))
+	{
+	    ft_printf("Invalid argument range (range = [-1.0 - 1.0])");
+	    exit(1);
+	}
+    }
+}
+
+static void	invalid_input(int argc, char *argv[])
+{
+    if ((ft_strncmp(argv[1], "mandelbrot", 10) != 0 || argc != 2)
+	    && (ft_strncmp(argv[1], "julia", 6) != 0 || argc != 4))
+    {
+	ft_printf("error: invalid format\nUse following format:\n\
+    ./fractol mandelbrot\n\
+    ./fractol julia\n");
+	exit(0);
+    }
 }
 
 static void	draw_fractol(t_data *img, char *argv[])
@@ -29,16 +52,21 @@ static void	draw_fractol(t_data *img, char *argv[])
 	if (ft_strncmp(argv[1], "mandelbrot", 10) == 0)
 		mlx_loop_hook(img->mlx, ft_hook_mandelbrot, img);
 	else if (ft_strncmp(argv[1], "julia", 5) == 0)
+	{
 		mlx_loop_hook(img->mlx, ft_hook_julia, img);
+		img->czr = ft_atof(argv[2]);
+		img->czi = ft_atof(argv[3]);
+	}
 }
 
 int	main(int argc, char *argv[])
 {
 	t_data	img;
 
-	if (argc == 2)
+	if (argc > 1)
 	{
-		invalid_input(argv);
+		invalid_input(argc, argv);
+		invalid_parameter(argv);
 		init_mlx(&img);
 		init_fractol(&img);
 		mlx_key_hook(img.mlx_win, ft_key_hook, &img);

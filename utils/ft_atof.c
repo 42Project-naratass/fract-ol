@@ -1,7 +1,4 @@
-// #include "../fractol.h"
-#include <stdbool.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "../fractol.h"
 
 static void	beforedot(double *sum, char **nbtr)
 {

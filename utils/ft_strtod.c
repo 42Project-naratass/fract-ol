@@ -86,6 +86,8 @@ double	ft_strtod(char *str, char **endptr)
 	p++; 
     if (is_inf(p, endptr))
 	return (atof(str));
+    if (is_nan(p, endptr))
+	return (atof(str));
     if (still_digit(p, endptr))
 	return (atof(str));
     *endptr = str;

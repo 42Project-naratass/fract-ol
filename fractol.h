@@ -124,5 +124,5 @@ int			ft_tolower(int c);
 bool			is_digit(char c);
 bool			is_space(char c);
 double			ft_atof(char *nbtr);
-
+double			ft_strtod(char *str, char **endptr);
 #endif
