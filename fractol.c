@@ -42,7 +42,7 @@ static void	invalid_input(int argc, char *argv[])
     {
 	ft_printf("error: invalid format\nUse following format:\n\
     ./fractol mandelbrot\n\
-    ./fractol julia\n");
+    ./fractol julia <value[-1.0, 1.0]> <value[-1.0, 1.0]>\n");
 	exit(0);
     }
 }
@@ -77,7 +77,7 @@ int	main(int argc, char *argv[])
 	}
 	else
 		ft_printf("error: invalid format\nUse following format:\n\
-./fractol mandelbrot\n\
-./fractol julia\n");
+    ./fractol mandelbrot\n\
+    ./fractol julia <value[-1.0, 1.0]> <value[-1.0, 1.0]>\n");
 	return (0);
 }
