@@ -49,7 +49,7 @@
 
 typedef struct s_data
 {
-	char	*name;
+	char	name;
 	void	*mlx;	
 	void	*mlx_win;
 	void	*img;
