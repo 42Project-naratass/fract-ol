@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
-#include <stdio.h>
 
 size_t	calc_julia(t_data *img, const int p_x, const int p_y)
 {
@@ -28,12 +27,11 @@ size_t	calc_julia(t_data *img, const int p_x, const int p_y)
 	sqr.xsqr = x * x;
 	sqr.ysqr = y * y;
 	iter = 0;
-	while (sqr.xsqr + sqr.ysqr <= 4
-		&& iter < img->max_iter)
+	while (sqr.xsqr + sqr.ysqr <= 4 && iter < img->max_iter)
 	{
-	    tmp = sqr.xsqr - sqr.ysqr;
+	    tmp = sqr.xsqr - sqr.ysqr + img->czr;
 	    y = 2 * x * y + img->czi;
-	    x = tmp + img->czr;
+	    x = tmp;
 	    sqr.xsqr = x * x;
 	    sqr.ysqr = y * y;
 	    ++iter;
