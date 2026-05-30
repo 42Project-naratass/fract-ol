@@ -11,20 +11,11 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
-/*
-static void	zoom_calc(t_data *img)
-{
-    if (WIDTH >= HEIGHT)
-	img->zoom = WIDTH / (WIDTH * 3.5);
-    else
-	img->zoom =  HEIGHT / (HEIGHT * 3.5);
-}
-*/
+
 void	init_fractol(t_data *img)
 {
 	img->need_render = true;
 	img->zoom = 1.0;
-//	zoom_calc(img);
 	img->max_iter = 50;
 	img->c_x = 0;
 	img->c_y = 0;

@@ -32,9 +32,9 @@ static void	zoom_at_mouse(t_data *fractol, double new_zoom,
 static void	check_zoom_level(t_data *fractol)
 {
 	if (fractol->zoom > 0 && fractol->zoom < 50)
-		fractol->max_iter = 50;
+		fractol->max_iter = 100;
 	else if (fractol->zoom < 10000)
-		fractol->max_iter = 75;
+		fractol->max_iter = 100;
 	else if (fractol->zoom < 100000)
 		fractol->max_iter = 100;
 	else if (fractol->zoom < 1000000)
