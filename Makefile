@@ -37,7 +37,7 @@ LDFLAGS += -fsanitize=address,undefined
 LDLIBS := -lm -lmlx -lX11 -lftprintf -lXext
 unexport CFLAGS LDFLAGS LDLIBS
 
-all : $(NAME)
+all : $(NAME) fractol.h
 clean :
 	$(MAKE) -C minilibx clean
 	$(MAKE) -C ft_printf clean
@@ -56,10 +56,10 @@ minilibx/libmlx.a:
 ft_printf/libftprintf.a :
 	CFLAGS="$(ORIG_CFLAGS)" $(MAKE) -C ft_printf all
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) -o $@ $^
+%.o: %.c fractol.h 
+	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(NAME) : $(OBJS) | minilibx/libmlx.a ft_printf/libftprintf.a
+$(NAME) : $(OBJS) | minilibx/libmlx.a ft_printf/libftprintf.a 
 	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
 .NOTPARALLEL: re
