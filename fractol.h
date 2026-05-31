@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 01:24:26 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/31 11:57:22 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/31 12:49:06 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,8 @@ int			ft_mouse_hook(int mouse_code, int x, int y, void *param);
 // utils
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_tolower(int c);
-bool			is_digit(char c);
-bool			is_space(char c);
-double			ft_atof(char *nbtr);
-double			ft_strtod(char *str, char **endptr);
+bool		is_digit(char c);
+bool		is_space(char c);
+double		ft_atof(char *nbtr);
+double		ft_strtod(char *str, char **endptr);
 #endif

@@ -60,7 +60,7 @@ ft_printf/libftprintf.a :
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(NAME) : $(OBJS) | minilibx/libmlx.a ft_printf/libftprintf.a 
-	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
 .NOTPARALLEL: re
 .PHONY: all clean fclean re libft

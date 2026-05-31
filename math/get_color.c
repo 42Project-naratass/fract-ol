@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 02:02:37 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/26 02:11:00 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/31 12:44:21 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	fill_palette_16_to_31(uint32_t *p)
 	p[18] = 0xE0E0E0FF;
 	p[19] = 0xD0D0D0FF;
 	p[20] = 0xC0C0C0FF;
-	p[21] = 0xB0B0B0FF;
+	p[21] = 0x7F7F7FFF;
 	p[22] = 0xA0A0A0FF;
 	p[23] = 0x909090FF;
 	p[24] = 0x808080FF;
