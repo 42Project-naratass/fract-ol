@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 01:24:26 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/26 02:07:27 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/31 11:57:22 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include "ft_printf.h"
 
 # define MAX_ITER 150
-# define WIDTH 1280.0
-# define HEIGHT 720.0
+# define WIDTH 1920.0
+# define HEIGHT 1080.0
 # define MAX_ZOOM 10000000
 
 // KEY CODES
