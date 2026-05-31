@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 01:24:26 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/31 12:49:06 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/31 13:00:07 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void		init_mlx(t_data *img);
 void		init_fractol(t_data *img);
 void		my_mlx_pixel_put(t_data *data, const int p_x, const int p_y,
 				int color);
-void		render_resolution(t_data *img, size_t(*fractol)(t_data*, int, int),
+void		render_resolution(t_data *img, size_t (*fractol)(t_data*, int, int),
 				size_t reso_scale);
 
 // mandelbrot

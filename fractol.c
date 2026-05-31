@@ -6,7 +6,7 @@
 /*   By: naratass <naratass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 00:16:49 by naratass          #+#    #+#             */
-/*   Updated: 2026/05/31 12:56:00 by naratass         ###   ########.fr       */
+/*   Updated: 2026/05/31 13:09:33 by naratass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static void	invalid_parameter(char *argv[])
 	if (ft_strncmp(argv[1], "julia", 6) == 0)
 	{
 		czr = ft_strtod(argv[2], &endptr);
-		if (czr < -1.0 || czr > 1.0 || (czr == 0.0 && *endptr))
+		if (czr < -1.0 || czr > 1.0 || (*endptr))
 		{
 			ft_printf("Invalid argument range (range = [-1.0 - 1.0])\n");
 			exit(1);
 		}
 		czi = ft_strtod(argv[3], &endptr);
-		if (czi < -1.0 || czi > 1.0 || (czi == 0.0 && *endptr))
+		if (czi < -1.0 || czi > 1.0 || (*endptr))
 		{
 			ft_printf("Invalid argument range (range = [-1.0 - 1.0])\n");
 			exit(1);
@@ -37,8 +37,8 @@ static void	invalid_parameter(char *argv[])
 
 static void	invalid_input(int argc, char *argv[])
 {
-	if ((ft_strncmp(argv[1], "mandelbrot", 10) != 0 || argc != 2)
-		&& (ft_strncmp(argv[1], "julia", 6) != 0 || argc != 4))
+	if ((ft_strncmp(argv[1], "mandelbrot", 11) != 0 || argc != 2)
+		&& (ft_strncmp(argv[1], "julia", 7) != 0 || argc != 4))
 	{
 		ft_printf("error: invalid format\nUse following format:\n");
 		ft_printf("./fractol mandelbrot\n");
