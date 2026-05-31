@@ -50,13 +50,26 @@ static void	apply_e(char **nbtr, int *e)
     }
 }
 
+static void	if_sign(char **nbtr, double *sign)
+{
+    if (**nbtr == '-' || **nbtr =='+')
+    {
+	if (**nbtr == '-')
+	    *sign *= -1.0;
+	(*nbtr)++;
+    }
+}
+
 double	ft_atof(char *nbtr)
 {
     double	sum;
+    double	sign;
     int		e;
 
     sum = 0.0;
     e = 0;
+    sign = 1.0;
+    if_sign(&nbtr, &sign);
     beforedot(&sum, &nbtr);
     afterdot(&sum, &nbtr, &e);
     apply_e(&nbtr, &e);
@@ -70,6 +83,6 @@ double	ft_atof(char *nbtr)
 	sum *= 0.1;
 	e++;
     }
-    return (sum);
+    return (sum * sign);
 }
 

@@ -54,14 +54,15 @@ static void	draw_fractol(t_data *img, char *argv[])
 		mlx_loop_hook(img->mlx, ft_hook_mandelbrot, img);
 		img->x_offset = -0.5;
 		img->y_offset = 0.0;
+		img->name = 'm';
 	}
 	else if (ft_strncmp(argv[1], "julia", 5) == 0)
 	{
 		mlx_loop_hook(img->mlx, ft_hook_julia, img);
+		printf("czr: %lf\nczi: %lf\n", ft_atof(argv[2]), ft_atof(argv[3]));
 		img->czr = ft_atof(argv[2]);
 		img->czi = ft_atof(argv[3]);
-		img->x_offset = 0.0;
-		img->y_offset = 0.0;
+		img->name = 'j';
 	}
 }
 

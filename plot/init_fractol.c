@@ -24,4 +24,9 @@ void	init_fractol(t_data *img)
 	img->x_max = 2.0;
 	img->y_min = (HEIGHT / WIDTH) * -2.0;
 	img->y_max = (HEIGHT / WIDTH) * 2.0;
+	img->y_offset = 0.0;
+	if (img->name == 'j')
+	    img->x_offset = 0.0;
+	else if (img->name == 'm')
+	    img->x_offset = -0.5;
 }
